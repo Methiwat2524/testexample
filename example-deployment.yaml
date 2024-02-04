@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.32.0 (765fde254)
+  labels:
+    io.kompose.service: example
+  name: example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: example
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml
+        kompose.version: 1.32.0 (765fde254)
+      labels:
+        io.kompose.network/example-default: "true"
+        io.kompose.service: example
+    spec:
+      containers:
+        - image: methi45docker/example:example
+          name: example
+          ports:
+            - containerPort: 4000
+              protocol: TCP
+      restartPolicy: Always

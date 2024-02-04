@@ -1,0 +1,8 @@
+# Create on 2024-02-04T22:20:51+07:00
+# Katenary command line: katenary convert -c docker-compose.yml -o ./charts
+apiVersion: v2
+appVersion: 0.0.1
+description: A helm chart for example
+name: example
+type: application
+version: 0.1.0

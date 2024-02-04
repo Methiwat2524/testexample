@@ -1,0 +1,4 @@
+example:
+  repository:
+    image: methi45docker/example
+    tag: example

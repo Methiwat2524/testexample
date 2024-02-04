@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: '{{ .Release.Name }}-example'
+  labels:
+    katenary.io/component: example
+    katenary.io/project: '{{ .Chart.Name }}'
+    katenary.io/release: '{{ .Release.Name }}'
+  annotations:
+    katenary.io/docker-compose-sha1: c265932916d77cf2558b955160ca3d83c9eed7a7
+    katenary.io/version: 2.0.0-beta2
+spec:
+  selector:
+    katenary.io/component: example
+    katenary.io/release: '{{ .Release.Name }}'
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000

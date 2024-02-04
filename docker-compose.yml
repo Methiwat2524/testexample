@@ -1,0 +1,7 @@
+name: example
+version: '3.3'
+services:
+    example:
+        ports:
+            - "4000"
+        image: methi45docker/example:example
